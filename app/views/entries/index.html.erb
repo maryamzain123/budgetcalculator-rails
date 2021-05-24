@@ -1,0 +1,22 @@
+
+<div class="main">
+ <h1>Your Categories</h1>
+ <!--
+ # <%= link_to "January", month_path(@user, @entry)%><br>
+# <%= link_to "February", month_path(@user, @entry)%><br>
+# <%= link_to "March", month_path(@user, @entry)%><br>
+# <%= link_to "April", month_path(@user, @entry)%><br>
+# <%= link_to "May", month_path(@user, @entry)%><br>
+# <%= link_to "June", month_path(@user, @entry)%><br>
+# <%= link_to "July", month_path(@user, @entry)%><br>
+# <%= link_to "August", month_path(@user, @entry)%><br>
+# <%= link_to "September", month_path(@user, @entry)%><br>
+# <%= link_to "October", month_path(@user, @entry)%><br>
+# <%= link_to "November", month_path(@user, @entry)%><br>
+# <%= link_to "December", month_path(@user, @entry)%><br>
+ -->
+
+ <% @categories.each do |c| %>
+    <%= link_to c.name, user_category_path(@user, c)%> <br>
+    <% end %>
+</div>

@@ -1,0 +1,18 @@
+<div class= "main">
+<h1> Sign up </h1>
+
+<% if @user.errors.any? %>
+<% @user.errors.full_messages.each do |error| %>
+
+    <h4><%= error %></h4>
+
+<% end %>
+<% end %>
+
+<%= form_with model: @user do |t| %>
+    Username <%= t.text_field :username %><br /><br />
+    Email <%= t.text_field :email %><br /><br />
+    Password <%= t.text_field :password %><br /><br />
+    <%= t.submit "submit" %>
+    <% end %>
+</div>

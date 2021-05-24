@@ -1,0 +1,23 @@
+<div class="main">
+<h1> Add your new Entry </h1>
+
+<%= form_with model: @entry do |f| %>
+    <%= f.label :Category %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %><br>
+    <br>
+    <%= f.label :details %>
+    <%= f.text_field :details %><br>
+
+        <br>
+    
+    <%= f.label :amount %>
+    <%= f.number_field :amount %><br>
+    <br>
+    <%= f.label :month %>
+    <%= f.select :month, ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], prompt:"Pick a month" =%>
+
+        <br><br>
+    
+    <%= f.submit "submit" %>
+<% end %>
+</div>

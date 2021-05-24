@@ -1,0 +1,12 @@
+
+<div class="main">
+
+
+ <h1><%= @entry.details %>:</h1>
+<h2><i>$<%= @entry.amount %></i>, <%= @entry.month %></h2>
+ <br>
+
+<%= link_to "Edit", edit_entry_path(@entry) %><p>
+<%= link_to "Delete", @entry, method: :delete %><br>
+
+</div>
