@@ -2,9 +2,7 @@ class SessionsController < ApplicationController
 
 
     def new  
-
     end
-
 
     def create
     
@@ -30,7 +28,7 @@ class SessionsController < ApplicationController
 
     def omniauth  #log users in with omniauth
         user = User.create_from_omniauth(auth)
-        binding.pry
+       
         if user.valid?
 
             session[:user_id] = user.id

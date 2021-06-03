@@ -10,8 +10,6 @@ Rails.application.routes.draw do
   get '/user/:user_id/entries/month', to: "entries#month", as: "month"
   # get '/user/:user_id/entries/usercategory', to: "entries#usercategory", as: "usercategory"
 
-  resources :entries
-
 
   get 'login', to: "sessions#new"
   post 'login', to: "sessions#create"
