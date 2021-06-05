@@ -14,7 +14,8 @@
     <%= f.number_field :amount %><br>
     <br>
     <%= f.label :month %>
-    <%= f.text_field :month %><br>
+    <%= f.select :month, ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], prompt:"Pick a month" =%>
+
 
         <br><br>
     

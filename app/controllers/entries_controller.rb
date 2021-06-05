@@ -5,8 +5,7 @@ class EntriesController < ApplicationController
 
 
     def index
-      if params[:user_id]  
-        # find_user
+      if (params[:user_id]).to_i == current_user.id
         @entries = @user.entries 
         @categories = Category.all
       else
@@ -15,20 +14,24 @@ class EntriesController < ApplicationController
     end
 
       def show
-        if params[:user_id] 
-        else
-          redirect_to login_path
-        end
+      if (params[:user_id]).to_i == current_user.id
+      else
+        redirect_to login_path
+      end
       end
     
       def new
-        @signedin_user = current_user
-        @entry = @signedin_user.entries.build
+        if (params[:user_id]).to_i == current_user.id
+        @entry = @user.entries.build
+        else
+          redirect_to user_entries_path(@user)
+        end
       end
     
       def create
-        @signedin_user = current_user
-        @entry =  @signedin_user.entries.build(entry_params)
+         @user = User.find_by_id(params[:user_id])
+        binding.pry
+        @entry =  @user.entries.build(entry_params)
         @entry.save
         redirect_to user_entry_path(@user, @entry)
       end
@@ -43,8 +46,7 @@ class EntriesController < ApplicationController
     end
 
     def destroy
-      if params[:user_id] 
-        # find_user
+      if (params[:user_id]).to_i == current_user.id
         @entry.destroy
         redirect_to user_entries_path(@user)
       end
@@ -54,8 +56,8 @@ class EntriesController < ApplicationController
     private
 
     def find_user
-        # @user = User.find_by_id(params[:user_id])
-        @signedin_user = current_user
+      @user = User.find_by_id(params[:user_id])
+        
     end
 
 
