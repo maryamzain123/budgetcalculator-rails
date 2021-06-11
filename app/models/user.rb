@@ -5,6 +5,8 @@ class User < ApplicationRecord
     has_many :categories, through: :entries
     
     validates :username, presence: true, uniqueness: true 
+    validates :email, presence: true
+
 
     def self.create_from_omniauth(auth)
        

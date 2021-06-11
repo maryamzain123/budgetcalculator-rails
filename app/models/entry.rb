@@ -3,9 +3,16 @@ class Entry < ApplicationRecord
     belongs_to :category
     validates :amount, :details, :month, presence: true
 
-    
-  scope :month_entries, ->(m) { where(month: m) }
 
+    def self.search(search_term)
+        if search_term
+            return entry = where(details: search_term)
+        else
+            return Entry.all
+        end
+    end
+
+    
 
   
 end

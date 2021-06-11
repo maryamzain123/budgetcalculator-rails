@@ -1,6 +1,13 @@
 class CategoriesController < ApplicationController
 
-    
+    def index
+        if (params[:user_id]).to_i == current_user.id
+        @categories = Category.category_sort
+    else
+        session.clear
+        redirect_to login_path
+       end
+    end
     
     def show
         if (params[:user_id]).to_i == current_user.id

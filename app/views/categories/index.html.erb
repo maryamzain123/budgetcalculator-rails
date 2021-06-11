@@ -1,0 +1,9 @@
+
+<div class="main">
+<h1>Categories</h1>
+
+
+<% @categories.each do |c| %>
+   <%= link_to c.name, user_category_path(@user, c)%> <br>
+   <% end %>
+</div>

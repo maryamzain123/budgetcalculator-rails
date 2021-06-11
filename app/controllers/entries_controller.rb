@@ -5,18 +5,31 @@ class EntriesController < ApplicationController
 
 
     def index
+      
       if (params[:user_id]).to_i == current_user.id
-        @entries = @user.entries 
-        @categories = Category.all
+        @user = User.find_by_id(params[:user_id])
+        # (params[:user_id]).to_i == current_user.id
+        if params[:search_term].blank?
+          @entries = @user.entries
+        else
+          @entries = Entry.search(params[:search_term]).filter{|entry| entry.user_id == @user.id}
+          # redirect_to user_entries_path(@user)
+        end
+        
+        # @entries = @user.entries 
       else
-        redirect_to entries_path
+        # session.clear
+        redirect_to "/"
        end
     end
+
+    
 
       def show
       if (params[:user_id]).to_i == current_user.id
       else
-        redirect_to login_path
+        session.clear
+        redirect_to "/"
       end
       end
     
@@ -29,8 +42,7 @@ class EntriesController < ApplicationController
       end
     
       def create
-         @user = User.find_by_id(params[:user_id])
-        binding.pry
+        @user = User.find_by_id(params[:user_id])
         @entry =  @user.entries.build(entry_params)
         @entry.save
         redirect_to user_entry_path(@user, @entry)
