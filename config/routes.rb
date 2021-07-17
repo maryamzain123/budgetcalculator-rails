@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :entries
-  resources :categories
+
 
   resources :users do
     resources :entries
-    resources :categories
+    resources :categories, only: [:index, :show]
   end
+
+  # resources :categories do 
+  #   resources :entries
+  # end
+  
 
 
   # get '/user/:user_id/entries/month', to: "entries#month", as: "month"

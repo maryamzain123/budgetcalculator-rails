@@ -11,8 +11,6 @@
 <% @entries.each do |e| %>
     <b>Details:</b><%= link_to e.details, user_entry_path(@user, e)%>
     <br> <b>Amount:</b> <i>$<%= e.amount %></i>, <b>Month:</b> <%= e.month %><br>
-<% @entry_owner=User.find_by_id(e.user_id) %>
-<%= @entry_owner.username %>
      <br><br >
     <% end %>
  </div>

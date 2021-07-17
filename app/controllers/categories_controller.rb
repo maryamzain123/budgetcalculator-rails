@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
 
     def index
         if (params[:user_id]).to_i == current_user.id
-        @categories = Category.category_sort
+        @categories = current_user.categories.uniq
     else
         session.clear
         redirect_to login_path
@@ -10,14 +10,16 @@ class CategoriesController < ApplicationController
     end
     
     def show
-        if (params[:user_id]).to_i == current_user.id
-            @user = User.find_by_id(params[:user_id])
-            @category = Category.find_by_id(params[:id])
-            @entries = @user.entries.filter { |entry| entry.category_id == @category.id}   
- 
+        @category = Category.find_by(params[:id])
+        if @category.users.include?(current_user)
+        @entries = @category.entries.filter { |ent| ent.user ==  current_user}
+      
+            render :show
         else
-            redirect_to user_entries_path(@user)
+            flash[:error] = "This is not the correct id "
+        redirect_to "/"
         end
+
     end
     
 

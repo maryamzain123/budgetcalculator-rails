@@ -1,12 +1,8 @@
 class UsersController < ApplicationController
     before_action :find_user, only: [:show, :edit, :update, :destroy]
 
-    def index
-        @users = User.all
-    end
-
     def show 
-      
+        @user_total =  current_user.entries.map {|ent| ent.amount}.sum
     end
 
     def new
@@ -21,7 +17,6 @@ class UsersController < ApplicationController
         else
             render :new
         end
-
     end
 
     def edit
@@ -35,7 +30,7 @@ class UsersController < ApplicationController
     def destroy
         @user.destroy
         redirect_to users_path
-        end
+    end
 
     private
 

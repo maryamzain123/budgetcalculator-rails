@@ -3,6 +3,6 @@
 <h1><%= @category.name %></h1>
 
 <% @entries.each do |e| %><br>
-    <%= link_to e.details, user_entry_path(current_user, e)%> <br>
+    <%= link_to e.details, user_entry_path(@user, e)%> <br>
 
     <%end%>

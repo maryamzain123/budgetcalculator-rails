@@ -6,7 +6,7 @@
 <h2><i>$<%= @entry.amount %></i>, <%= @entry.month %></h2>
  <br>
 
-<%= link_to "Edit", edit_user_entry_path(@user, @entry) %><p>
-<%= link_to "Delete", [@user, @entry], method: :delete %><br>
+<%= link_to "Edit", edit_user_entry_path(@entry.user, @entry) %><p>
+<%= link_to "Delete", [@entry.user, @entry], method: :delete %><br>
 
 </div>
