@@ -19,6 +19,7 @@ class EntriesController < ApplicationController
     
 
       def show
+
   
       end
     
@@ -67,4 +68,3 @@ class EntriesController < ApplicationController
   
   
 end
-
