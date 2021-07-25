@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+    
+    
     def index
         if (params[:user_id]).to_i == current_user.id
         @categories = current_user.categories.uniq
@@ -9,12 +11,9 @@ class CategoriesController < ApplicationController
     end
     
     def show
-        
-        @category = Category.find_by(params[:id])
-        @entries = @category.entries.filter { |ent| ent.user ==  current_user}
-      binding.pry
-       
-
+            @signedin_user = current_user
+            @category = Category.find_by_id(params[:id])
+            @entries = @signedin_user.entries.filter { |entry| entry.category_id == @category.id}  
     end
     
 
