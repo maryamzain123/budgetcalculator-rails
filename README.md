@@ -1,12 +1,13 @@
 
--Budget Calculator Rails Project-
+Name
+Budget Calculator
 
- Welcome to the Budget Calculator web application! This is a demo app created using Ruby on Rails. This app helps you keep record of your expenses and get the total of all the expenses according to different categories. Every user has their own profile requiring a username and password to login.
+Description
+Welcome to the Budget Calculator web application! This is a demo app created using Ruby on Rails. This app helps you keep record of your expenses and get the total of all the expenses according to different categories. Every user has their own profile requiring a username and password to login.
 
--Installation-
- This project was created as part of the Flatiron School's Learn-Verified program. To see it in action: download or clone this project cd into the budget-calculator directory run bundle install in your console run rails s, open your browser and enter the given local url provided by the rails server!
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Installation
+This project was created as part of the Flatiron School's Learn-Verified program. To see it in action: download or clone this project cd into the budget-calculator directory run bundle install in your console run rails s, open your browser and enter the given local url provided by the rails server!
+This README would normally document whatever steps are necessary to get the application up and running.
 
 Things you may want to cover:
 
@@ -17,14 +18,13 @@ ruby '2.6.1'
 * Rails version:
     rails', '~> 6.1.3', '>= 6.1.3.2'
 
-
-Contributors
+Contributing
 If you wish to contribute to this program please submit a pull request or a new issue.
 
 License
 This program is licensed under The MIT License (https://opensource.org/licenses/MIT). License file included.
 
-Sources
-https://rubygems.org/
+Project status
+This project is still in work in terms of styling.
 
 
