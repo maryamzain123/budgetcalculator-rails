@@ -1,9 +1,7 @@
 <div class="main">
 <h1> Add your new entry </h1>
 
-<%= form_with model: [@user, @entry] do |f| %>
-    <%= f.label :Category %>
-    <%= f.collection_select :category_id, Category.all, :id, :name %><br>
+<%= form_with model: [@category, @entry] do |f| %>
     <br>
     <%= f.label :details %>
     <%= f.text_field :details %><br>

@@ -5,6 +5,7 @@ class Entry < ApplicationRecord
 
 
     scope :most_recent, -> {order("created_at DESC")}
+    scope :expensive_purchase, -> {where(amount: self.maximum(:amount))}
 
     def self.search(search_term)
         if search_term

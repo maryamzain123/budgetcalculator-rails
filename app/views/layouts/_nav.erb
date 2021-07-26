@@ -12,7 +12,9 @@
 <% else %>
 
    <li> Hey <%= current_user.username %>!</li>
+
     <li><%= link_to "Log Out", logout_path,  method: :delete %></li>
+    <li><%= link_to "Expensive Purchase",  purchase_path    %></li>
     <li><%= link_to "Add a new Entry", new_user_entry_path(current_user) %></li>
     <li><%= link_to "My Entries", user_entries_path(current_user) %></li>
     <li><%= link_to "Categories", user_categories_path(current_user) %></li>

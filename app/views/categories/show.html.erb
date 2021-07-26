@@ -1,8 +1,10 @@
 
+<%= link_to "create new entry", new_category_entry_path(@category, @entry) %>
+<div class="main">
 
-<h1><%= @category.name %></h1>
 
 <% @entries.each do |e| %><br>
-    <%= link_to e.details, user_entry_path(@user, e)%> <br>
+    <%= link_to e.details, category_entry_path(@category, e)%> <br>
 
     <%end%>
+</div>
