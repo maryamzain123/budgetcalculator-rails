@@ -7,7 +7,7 @@ class EntriesController < ApplicationController
     def index
       if @user = current_user
         if params[:search_term].blank?
-          @entries = @user.entries
+          @entries = @user.entries.most_recent
         else
           @entries = Entry.search(params[:search_term]).filter{|entry| entry.user_id == @user.id}
         end
@@ -16,11 +16,7 @@ class EntriesController < ApplicationController
       end
     end
 
-    
-
       def show
-
-  
       end
     
       def new
@@ -56,12 +52,13 @@ class EntriesController < ApplicationController
     private
 
     def find_user
-      @user = User.find_by_id(params[:user_id])
-        
+      @user = User.find_by_id(params[:user_id])  
     end
+
     def find_entry
       @entry = Entry.find_by_id(params[:id])
     end
+
     def entry_params
         params.require(:entry).permit( :details, :amount, :month, :user_id, :category_id)
     end
