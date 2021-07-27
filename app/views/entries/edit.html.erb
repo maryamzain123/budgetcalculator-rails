@@ -1,7 +1,7 @@
 <h1> Edit Your Entry </h1>
 
 
-<%= form_with model: [@user, @entry] do |f| %>
+<%= form_with model: [@category, @entry] do |f| %>
     <%= f.label :Category %>
     <%= f.collection_select :category_id, Category.all, :id, :name %><br>
     <br>

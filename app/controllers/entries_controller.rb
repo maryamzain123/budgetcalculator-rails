@@ -7,8 +7,10 @@ class EntriesController < ApplicationController
 
     def index
       if @user = current_user
+        @category = Category.find_by_id(params[:category_id])
+
         if params[:search_term].blank?
-          @entries = @user.entries.most_recent
+          @entries = current_user.entries.most_recent
         else
           @entries = Entry.search(params[:search_term]).filter{|entry| entry.user_id == @user.id}
         end
@@ -54,12 +56,12 @@ class EntriesController < ApplicationController
 
     def update
         @entry.update(entry_params)
-        redirect_to user_entry_path(@user, @entry)
+        redirect_to category_path(@category)
     end
 
     def destroy
         @entry.destroy
-        redirect_to user_entries_path(@user)
+        redirect_to category_path(@category)
     end
 
   

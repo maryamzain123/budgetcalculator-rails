@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
 
+  get '/search_entries', to: 'entries#index'
 
   resources :users do
     resources :entries
-    resources :categories, only: [:index, :show]
   end
-
 
   resources :categories do 
     resources :entries
