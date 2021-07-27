@@ -1,4 +1,3 @@
-
 <div class="main">
 
 <%= form_tag(search_entries_path, method: "get") do %>
@@ -10,7 +9,7 @@
 
 <h1> Your Entries </h1>
 <% @entries.each do |e| %>
-    <b>Details:</b><%= link_to e.details, category_entries_path(e)%>
+    <b>Details:</b><%= link_to e.details, category_entry_path(@category, e)%>
     <br> <b>Amount:</b> <i>$<%= e.amount %></i>, <b>Month:</b> <%= e.month %><br>
      <br><br >
     <% end %>

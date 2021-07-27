@@ -4,7 +4,7 @@
 <h1><%= @category.name %></h1>
 
 <% @entries.each do |e| %><br>
-    <%= link_to e.details, category_entries_path(@category, e)%> <br>
+    <%= link_to e.details, category_entry_path(@category, e)%> <br>
 
     <%end%>
 </div>

@@ -6,17 +6,17 @@ class EntriesController < ApplicationController
 
 
     def index
-      if @user = current_user
-        @category = Category.find_by_id(params[:category_id])
 
         if params[:search_term].blank?
-          @entries = current_user.entries.most_recent
+          @user = current_user
+          @category = Category.find_by_id(params[:category_id])
+
+          @entries = @category.entries.most_recent
+       
         else
-          @entries = Entry.search(params[:search_term]).filter{|entry| entry.user_id == @user.id}
+          @entries = Entry.search(params[:search_term]).filter{|entry| entry.user_id == current_user.id}
         end
-      else
-        redirect_to "/"
-      end
+     
     end
 
       def show
