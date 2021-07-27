@@ -21,13 +21,15 @@ class EntriesController < ApplicationController
 
       def show
         @category = Category.find_by_id(params[:category_id])
+        @user = current_user
         
       end
     
       def new
         if params[:category_id]
           @category = Category.find_by_id(params[:category_id])
-      
+          @user = current_user
+
         @entry = @category.entries.build
         else
           redirect_to "/"
@@ -53,11 +55,13 @@ class EntriesController < ApplicationController
     
 
     def edit
+      
+      @user = current_user
     end
 
     def update
         @entry.update(entry_params)
-        redirect_to category_path(@category)
+        redirect_to category_entry_path(@category, @entry)
     end
 
     def destroy
