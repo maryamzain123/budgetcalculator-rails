@@ -16,7 +16,7 @@
     <li><%= link_to "Log Out", logout_path,  method: :delete %></li>
     <li><%= link_to "Expensive Purchase",  purchase_path    %></li>
     <li><%= link_to "Categories", categories_path %></li>
-    <li><%= link_to "Home",  user_entries_path(current_user)   %></li>
+    <li><%= link_to "Home",  user_path(@user)  %></li>
 
     
     

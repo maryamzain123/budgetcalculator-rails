@@ -1,13 +1,13 @@
 
 <div class="main">
 
-<h1><%= @category.name %></h1>
+<h1><%= @entry.category.name %></h1>
  <h2><%= @entry.details %>:</h2>
  
 <h2><i>$<%= @entry.amount %></i>, <%= @entry.month %></h2>
  <br>
 
-<%= link_to "Edit", edit_category_entry_path(@entry.category, @entry) %><p>
-<%= link_to "Delete", [@entry.category, @entry], method: :delete %><br>
+<%= link_to "Edit", edit_user_entry_path(@entry.user, @entry) %><p>
+<%= link_to "Delete", [@entry.user, @entry], method: :delete %><br>
 
 </div>

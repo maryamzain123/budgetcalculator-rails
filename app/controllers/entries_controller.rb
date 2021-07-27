@@ -11,7 +11,7 @@ class EntriesController < ApplicationController
           @user = current_user
           @category = Category.find_by_id(params[:category_id])
 
-          @entries = @category.entries.most_recent
+          @entries = current_user.entries.most_recent
        
         else
           @entries = Entry.search(params[:search_term]).filter{|entry| entry.user_id == current_user.id}
@@ -21,6 +21,7 @@ class EntriesController < ApplicationController
 
       def show
         @category = Category.find_by_id(params[:category_id])
+        
       end
     
       def new
