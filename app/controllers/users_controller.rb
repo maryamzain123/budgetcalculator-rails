@@ -2,8 +2,11 @@ class UsersController < ApplicationController
     before_action :find_user, only: [:show, :edit, :update, :destroy]
 
     def show 
+        
         @user_total =  current_user.entries.map {|ent| ent.amount}.sum
+       
     end
+
 
     def new
         @user = User.new

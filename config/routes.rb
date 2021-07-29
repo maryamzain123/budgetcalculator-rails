@@ -1,21 +1,18 @@
 Rails.application.routes.draw do
 
-  get '/search_entries', to: 'entries#index'
 
   resources :users do
     resources :entries
-    
+    resources :categories, only: [:index, :show]
   end
 
-  resources :categories do 
-    resources :entries
-  end
+  
 
-
-  get 'purchase', to: "entries#purchase"
   get 'login', to: "sessions#new"
   post 'login', to: "sessions#create"
   delete 'logout', to: "sessions#destroy"
+
+  get 'welcome', to: "sessions#welcome" 
 
 
   root(to: "static#home")

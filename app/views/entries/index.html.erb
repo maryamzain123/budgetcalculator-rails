@@ -1,15 +1,14 @@
 <div class="main">
 
-<%= form_tag(search_entries_path, method: "get") do %>
+<%= form_tag(user_entries_path, method: "get") do %>
     <%= label_tag(:search_term, "Search for:") %>
     <%= text_field_tag(:search_term) %>
     <%= submit_tag("Search") %>
   <% end %>
- 
 
 <h1> Your Entries </h1>
 <% @entries.each do |e| %>
-    <b>Details:</b><%= link_to e.details, category_entry_path(@category, e)%>
+    <b>Details:</b><%= link_to e.details, user_entry_path(@user, e)%>
     <br> <b>Amount:</b> <i>$<%= e.amount %></i>, <b>Month:</b> <%= e.month %><br>
      <br><br >
     <% end %>

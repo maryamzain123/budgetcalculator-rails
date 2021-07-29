@@ -4,6 +4,6 @@
 
 
 <% @categories.each do |c| %>
-   <%= link_to c.name, category_entries_path(c)%> <br>
+   <%= link_to c.name, user_category_path(@user, c)%> <br>
    <% end %>
 </div>
