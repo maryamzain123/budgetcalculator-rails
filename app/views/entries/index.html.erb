@@ -1,6 +1,6 @@
 <div class="main">
-
-<%= form_tag(user_entries_path, method: "get") do %>
+<%= link_to "Add a new Entry", new_category_entry_path(@category, @entry) %> <br>
+<%= form_tag(category_entries_path, method: "get") do %>
     <%= label_tag(:search_term, "Search for:") %>
     <%= text_field_tag(:search_term) %>
     <%= submit_tag("Search") %>
@@ -8,7 +8,7 @@
 
 <h1> Your Entries </h1>
 <% @entries.each do |e| %>
-    <b>Details:</b><%= link_to e.details, user_entry_path(@user, e)%>
+    <b>Details:</b><%= link_to e.details, category_entry_path(@category, e)%>
     <br> <b>Amount:</b> <i>$<%= e.amount %></i>, <b>Month:</b> <%= e.month %><br>
      <br><br >
     <% end %>

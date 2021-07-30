@@ -11,17 +11,10 @@
    
 <% else %>
 
-   <li> Hey <%= @user.username %>!</li>
+   <li> Hey <%= current_user.username %>!</li>
     <li><%= link_to "Log Out", logout_path,  method: :delete %></li>
-    <li><%= link_to "Add a new Entry", new_user_entry_path(@user, @entry) %></li>
-    <li><%= link_to "My Entries", user_entries_path(@user) %></li>
-    <li><%= link_to "Categories", user_categories_path(@user) %></li>
-    <li><%= link_to "Home",  user_path(@user)    %></li>
+    <li><%= link_to "Categories", categories_path %></li>
+    <li><%= link_to "Home",  user_path(current_user)    %></li>
 
-    
-    
-   
-
-    
 <% end %>
 </div>

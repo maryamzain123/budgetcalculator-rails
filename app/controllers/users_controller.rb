@@ -2,11 +2,12 @@ class UsersController < ApplicationController
     before_action :find_user, only: [:show, :edit, :update, :destroy]
 
     def show 
-        
+        if (params[:id]).to_i == current_user.id
         @user_total =  current_user.entries.map {|ent| ent.amount}.sum
-       
+        else
+            redirect_to "/"
+        end
     end
-
 
     def new
         @user = User.new
@@ -22,18 +23,8 @@ class UsersController < ApplicationController
         end
     end
 
-    def edit
-    end
 
-    def update
-        @user.update(user_params)
-        redirect_to user_path(@user)
-    end
-
-    def destroy
-        @user.destroy
-        redirect_to users_path
-    end
+  
 
     private
 
